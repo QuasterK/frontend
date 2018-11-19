@@ -4,6 +4,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 //import reducers
+import AuthorsReducer from './reducers/AuthorsReducer';
 
 //import saga
 import rootSaga from'./saga'
@@ -13,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 //initialize combineReducers
 const rootReducer = combineReducers({
-
+    authors: AuthorsReducer,
 });
 
 //create store
