@@ -1,14 +1,14 @@
 version: "2"
 
 services:
-  sample-app:
-    container_name: sample-app
+  teonite-app:
+    container_name: teonite-app
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
+      - '.:/teonite'
+      - '/teonite/node_modules'
     ports:
       - '3000:3000'
     environment:
