@@ -1,0 +1,39 @@
+version: "2"
+
+services:
+  sample-app:
+    container_name: sample-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
+#  scraper:
+#    image: teonite/test-scraper
+#    depends_on:
+#      - db
+#    entrypoint: dockerize -wait tcp://db:5432 scrapy crawl blog
+
+  api:
+    image: teonite/test-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+#      - scraper
+    entrypoint: dockerize -wait tcp://db:5432 python3 manage.py runserver 0.0.0.0:8080
+
+  db:
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=scrape
