@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 class Stats extends Component {
-    componentDidUpdate(){
+    componentWillUpdate(){
         if (this.props.numOfAuthors > 0) {
             if (this.props.numOfAuthors === 1 && this.props.shouldCalcSum === true) {
                 this.props.createArrayOfWords(this.props.stats.words)
-                    .then(this.props.calcSumBoolean(false))
-                    .then(this.props.sumWords(this.props.stats.words))
+                    .then(() => this.props.calcSumBoolean(false))
+                    .then(() => this.props.sumWords(this.props.stats.words))
             }
             if(this.props.numOfAuthors > 1 && this.props.shouldCalcSum === true) {
                 let newSum = {};
@@ -27,7 +27,6 @@ class Stats extends Component {
         }
     }
     render() {
-        console.log(this.props.stats)
         let stats = this.props.sumOfWords;
         let arrayOfStats =[];
         for(let key in stats){
@@ -58,7 +57,7 @@ class Stats extends Component {
 const mapStateToProps = (state) => {
     return {
         stats: state.stats.stats,
-        numOfAuthors: state.stats.numOfAuthors,
+        numOfAuthors: state.authors.numOfAuthors,
         wordsToDisplay: state.stats.words,
         wordsNextAuthor: state.stats.wordsNextAuthor,
         sumOfWords: state.stats.wordsSum,

@@ -1,6 +1,7 @@
 const initState = {
     authors: {},
     authorsArray: [],
+    numOfAuthors: 0,
 };
 
 const AuthorsReducer = (state = initState, action) => {
@@ -28,7 +29,14 @@ const AuthorsReducer = (state = initState, action) => {
                 authors: authors,
                 authorsArray:newAuthorsArray,
             };
-
+        case 'INCREASE_NUM_OF_AUTHORS':{
+            let prevNum = state.numOfAuthors;
+            let newNum = prevNum + action.increase;
+            return{
+                ...state,
+                numOfAuthors: newNum
+            }
+        }
         default:
             return state;
     }

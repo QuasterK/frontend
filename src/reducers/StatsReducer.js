@@ -1,8 +1,7 @@
 const initState = {
     //object with name and words
     stats: [],
-    //number of authors to display stats
-    numOfAuthors: 0,
+
     //words used by first author
     words: [],
     //words used by second and next authors
@@ -20,18 +19,11 @@ const StatsReducer = (state = initState, action) => {
                 ...state,
             };
         case 'STATS_FETCH_SUCCEEDED':
-            //get stats for chosed author
+            //get stats for chosen author
             let stats = action.getStats;
-
-            //increase number of authors
-            let currNumOfAuthors = state.numOfAuthors;
-            currNumOfAuthors ++;
-
             return {
                 ...state,
                 stats: stats,
-                numOfAuthors: currNumOfAuthors,
-
             };
         case 'CREATE_ARRAY_OF_WORDS':{
             return{

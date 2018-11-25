@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import '../scss/Authors.scss';
 
 class Authors extends Component {
 
@@ -11,17 +12,17 @@ class Authors extends Component {
     chooseAuthor = id => {
         //send id to fetch data from api
         this.props.getStats(id)
-            .then(this.props.calc(true))
+            .then(() =>this.props.increaseNumOfAuthors(1))
+            .then(() => this.props.calc(true))
     };
 
     render() {
         //array of object with name and key
         let authors = this.props.authorsArray;
-        console.log(authors)
         //creating array of authors to choose
         let showAuthors = authors.map( (author,i) => {
             return (
-                <div key={i}>
+                <div key={i} className='li'>
                     <span>{i +1} </span>
                     {author.name}
                     <span onClick={() => {this.chooseAuthor(author.key)}}>X</span>
@@ -43,6 +44,7 @@ class Authors extends Component {
 const mapStateToProps = (state) =>{
     return {
         authorsArray: state.authors.authorsArray,
+        numOfAuthors: state.authors.numOfAuthors
     }
 };
 
@@ -58,7 +60,11 @@ const mapDispatchToState = dispatch =>{
         },
         calc: (calc) =>{
             dispatch({type: 'CALC_SUM', calc:calc})
-        }
+        },
+        increaseNumOfAuthors: (increase) => {
+            (dispatch({type:'INCREASE_NUM_OF_AUTHORS', increase}));
+            return Promise.resolve()
+        },
     }
 };
 export default connect(mapStateToProps, mapDispatchToState)(Authors);
