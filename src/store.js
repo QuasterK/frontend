@@ -5,6 +5,8 @@ import createSagaMiddleware from 'redux-saga';
 
 //import reducers
 import AuthorsReducer from './reducers/AuthorsReducer';
+import StatsReducer from './reducers/StatsReducer';
+import CalcSum from './reducers/CalcSum';
 
 //import saga
 import rootSaga from'./saga'
@@ -15,6 +17,8 @@ const sagaMiddleware = createSagaMiddleware();
 //initialize combineReducers
 const rootReducer = combineReducers({
     authors: AuthorsReducer,
+    stats: StatsReducer,
+    calc: CalcSum,
 });
 
 //create store

@@ -1,28 +1,34 @@
-
 const initState = {
-    authors: null,
-
+    authors: {},
+    authorsArray: [],
 };
 
-const AuthorsReducer = (state= initState, action) => {
+const AuthorsReducer = (state = initState, action) => {
     switch (action.type) {
         case 'GET_AUTHORS':
-            return{
+            return {
                 ...state,
             };
         case 'AUTHOR_FETCH_SUCCEEDED':
+
+            //creating new object with authors
             let authors = action.getAuthors;
-            let authorsArray = [];
-            for (const key in authors){
-                if(authors.hasOwnProperty(key)){
-                    authorsArray.push(authors[key])
+
+            let newAuthorsArray = [];
+            for (let key in authors) {
+                if (authors.hasOwnProperty(key)) {
+                    newAuthorsArray.push({
+                        name: authors[key],
+                        key: key,
+                    })
                 }
             }
-
-            return{
+            return {
                 ...state,
-                authors: authorsArray,
+                authors: authors,
+                authorsArray:newAuthorsArray,
             };
+
         default:
             return state;
     }
