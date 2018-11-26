@@ -8,7 +8,7 @@ stages:
 - release
 
 variables:
-  TEST_IMAGE: https://gitlab.com/QuasterK/frontend.git:$CI_COMMIT_REF_NAME
+  TEST_IMAGE: https://gitlab.com/QuasterK/frontend.git
   RELEASE_IMAGE: https://gitlab.com/QuasterK/frontend.git:latest
 
 before_script:
