@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -176,12 +176,12 @@
       <workItem from="1542899691665" duration="11192000" />
       <workItem from="1543063715508" duration="30592000" />
       <workItem from="1543154911896" duration="10294000" />
-      <workItem from="1543178296284" duration="27166000" />
+      <workItem from="1543178296284" duration="27582000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107218000" />
+    <option name="totallyTimeSpent" value="107634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="540" y="43" width="1464" height="999" extended-state="0" />
@@ -569,7 +569,7 @@
     <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
