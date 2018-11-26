@@ -1,14 +1,36 @@
-image: node:9.6.1
+image: docker:latest
+services:
+- docker:dind
 
-pages:
-  stage: deploy
+stages:
+- build
+- test
+- release
+
+variables:
+  TEST_IMAGE: https://gitlab.com/QuasterK/frontend:$CI_COMMIT_REF_NAME
+  RELEASE_IMAGE: https://gitlab.com/QuasterK/frontend:latest
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN https://gitlab.com/QuasterK/frontend.git
+
+build:
+  stage: build
   script:
-  - npm install
-  - npm run build
-  - rm -rf public
-  - mv build public
-  artifacts:
-    paths:
-    - public
+    - docker build --pull -t $TEST_IMAGE .
+    - docker push $TEST_IMAGE
+
+test:
+  stage: test
+  script:
+    - docker pull $TEST_IMAGE
+    - docker run $TEST_IMAGE npm test
+
+release:
+  stage: release
+  script:
+    - docker pull $TEST_IMAGE
+    - docker tag $TEST_IMAGE $RELEASE_IMAGE
+    - docker push $RELEASE_IMAGE
   only:
-  - master
+    - master
