@@ -10,25 +10,30 @@ class Authors extends Component {
     };
 
     chooseAuthor = (e, id, name) => {
-        //send id to fetch data from api and name of author to list of chosen authors array
+        //send id to fetch data from api
         this.props.getStats(id)
+            //increasing number of chosen authors
             .then(() =>this.props.increaseNumOfAuthors(1))
+            //sending info that req calculate sum of words
             .then(() => this.props.calc(true))
+            //adding name of chosen author to array
             .then(() => this.props.chooseAuthor(name))
+            //deactivate chosen author button
             .then(() => {
-                //deactivate chosen author button
                 if(name === 'All Authors'){
                     this.props.deactivate(false)
                 }else{
-                    console.log(name)
-                    this.props.deleteAuthorFromList(name)
+                    console.log(name);
+                    this.props.deleteAuthorFromList(name);
                     this.props.deactivateAllButton('All Authors')
                 }
             })
     };
+
+    //reset selected options and restore initial states
     handleReset = () => {
         this.props.reset(false);
-    }
+    };
     render() {
 
         //array of object with name and key
@@ -104,7 +109,7 @@ const mapDispatchToState = dispatch =>{
         reset: () => {
             dispatch({type: "RESET"})},
         deactivate: (active) => {
-            dispatch({type: "ACTIVATE", active})
+            dispatch({type: "ACTIVATE", active});
             return Promise.resolve()
         },
         deactivateAllButton: (deactivate) => {
@@ -112,7 +117,7 @@ const mapDispatchToState = dispatch =>{
             return Promise.resolve()
         },
         deleteAuthorFromList: (del) => {
-            dispatch({type: "DELETE_AUTHOR_FROM_LIST", del})
+            dispatch({type: "DELETE_AUTHOR_FROM_LIST", del});
             return Promise.resolve()
         },
     }

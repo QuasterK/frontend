@@ -15,8 +15,9 @@ const AuthorsReducer = (state = initState, action) => {
 
             //creating new object with authors
             let authors = action.getAuthors;
-
+            //adding to list of authors all
             let newAuthorsArray = [{name: 'All Authors', key: ''}];
+            //create new array of authors including 'all'
             for (let key in authors) {
                 if (authors.hasOwnProperty(key)) {
                     newAuthorsArray.push({
@@ -45,6 +46,7 @@ const AuthorsReducer = (state = initState, action) => {
             }
         }
         case 'DEACTIVATE_ALL_BUTTON':{
+            //used in case, when client choose one of authors
             let authors = state.authorsArray;
             let newAuthorsArray = authors.filter( author => {
                 return action.deactivate !== author.name
@@ -55,6 +57,7 @@ const AuthorsReducer = (state = initState, action) => {
             }
         }
         case 'DELETE_AUTHOR_FROM_LIST':{
+            //delete chosen author from array
             let authors = state.authorsArray;
             let newAuthorsArray = authors.filter( author => {
                 return action.del !== author.name
