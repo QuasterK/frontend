@@ -1,0 +1,14 @@
+image: node:9.6.1
+
+pages:
+  stage: deploy
+  script:
+  - npm install
+  - npm run build
+  - rm -rf public
+  - mv build public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
