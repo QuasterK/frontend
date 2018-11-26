@@ -28,8 +28,8 @@
       <file leaf-file-name=".gitlab-ci.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" selection-start-line="9" selection-start-column="1" selection-end-line="11" selection-end-column="65" />
+            <state relative-caret-position="324">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -106,8 +106,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="777" />
-    <option name="y" value="37" />
+    <option name="x" value="517" />
+    <option name="y" value="34" />
     <option name="width" value="1464" />
     <option name="height" value="999" />
   </component>
@@ -176,15 +176,15 @@
       <workItem from="1542899691665" duration="11192000" />
       <workItem from="1543063715508" duration="30592000" />
       <workItem from="1543154911896" duration="10294000" />
-      <workItem from="1543178296284" duration="25573000" />
+      <workItem from="1543178296284" duration="25661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105625000" />
+    <option name="totallyTimeSpent" value="105713000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="777" y="37" width="1464" height="999" extended-state="0" />
+    <frame x="517" y="34" width="1464" height="999" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23726448" />
@@ -568,8 +568,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" selection-start-line="9" selection-start-column="1" selection-end-line="11" selection-end-column="65" />
+        <state relative-caret-position="324">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
         </state>
       </provider>
     </entry>
