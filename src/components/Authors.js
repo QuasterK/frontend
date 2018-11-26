@@ -5,50 +5,53 @@ import '../scss/Authors.scss';
 class Authors extends Component {
 
     showListOfAuthors = () => {
+        const {getAuthors} = this.props;
         //send req to api to get list of authors
-        this.props.getAuthors();
+        getAuthors();
     };
 
-    chooseAuthor = (e, id, name) => {
+    chooseAuthor = (id, name) => {
+        const {getStats, increaseNumOfAuthors, calc, chooseAuthor, deactivate, deleteAuthorFromList, deactivateAllButton} = this.props;
         //send id to fetch data from api
-        this.props.getStats(id)
+        getStats(id)
             //increasing number of chosen authors
-            .then(() =>this.props.increaseNumOfAuthors(1))
+            .then(() => increaseNumOfAuthors(1))
             //sending info that req calculate sum of words
-            .then(() => this.props.calc(true))
+            .then(() => calc(true))
             //adding name of chosen author to array
-            .then(() => this.props.chooseAuthor(name))
+            .then(() => chooseAuthor(name))
             //deactivate chosen author button
             .then(() => {
                 if(name === 'All Authors'){
-                    this.props.deactivate(false)
+                    deactivate(false)
                 }else{
-                    console.log(name);
-                    this.props.deleteAuthorFromList(name);
-                    this.props.deactivateAllButton('All Authors')
+                    deleteAuthorFromList(name);
+                    deactivateAllButton('All Authors')
                 }
             })
     };
 
     //reset selected options and restore initial states
     handleReset = () => {
-        this.props.reset(false);
+        const {reset} = this.props;
+        reset(false);
     };
     render() {
 
+        const {authorsArray, active, chosenAuthor} = this.props;
         //array of object with name and key
-        let authors = this.props.authorsArray;
+        let authors = authorsArray;
         //creating array of authors to choose
         let showAuthors = authors.map( (author,i) => {
             return (
-                <div key={i} className={this.props.active === true ? 'author' : 'deactivate'} onClick={(e) => {this.chooseAuthor(e,author.key, author.name)}}>
+                <div key={i} className={active === true ? 'author' : 'deactivate'} onClick={() => {this.chooseAuthor(author.key, author.name)}}>
                     {author.name}
                 </div>
             )
         });
-        let chosenAuthors = this.props.chosenAuthor;
+        let chosenAuthors = chosenAuthor;
         let showChosenAuthors;
-        if(this.props.chosenAuthor !== null) {
+        if(chosenAuthor !== null) {
            showChosenAuthors = chosenAuthors.map((author, i) => {
                 return <div key={i} className='chosenAuthor'>{author}</div>
             })

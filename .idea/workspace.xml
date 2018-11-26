@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8055b3e-a35a-4d25-af53-744431b8f603" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/scss/Stats.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Authors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Authors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Stats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Stats.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/AuthorsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/AuthorsReducer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,13 +17,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Authors.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Authors.js">
+      <file leaf-file-name="Stats.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Stats.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="936">
-              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+            <state relative-caret-position="-576">
+              <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,6 +35,14 @@
     <findStrings>
       <find>he</find>
       <find>console</find>
+      <find>stats</find>
+      <find>NumOf</find>
+      <find>wordsToDisplay</find>
+      <find>wordsNextAuthor</find>
+      <find>createNextAuthorsWords</find>
+      <find>nextAuthorsWords</find>
+      <find>sumOf</find>
+      <find>createArrayOfWords</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -62,9 +66,9 @@
         <option value="$PROJECT_DIR$/src/reducers/ActiveAuthorsReducer.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/scss/Stats.scss" />
-        <option value="$PROJECT_DIR$/src/components/Stats.js" />
         <option value="$PROJECT_DIR$/src/reducers/AuthorsReducer.js" />
         <option value="$PROJECT_DIR$/src/components/Authors.js" />
+        <option value="$PROJECT_DIR$/src/components/Stats.js" />
       </list>
     </option>
   </component>
@@ -178,12 +182,12 @@
       <workItem from="1542899691665" duration="11192000" />
       <workItem from="1543063715508" duration="30592000" />
       <workItem from="1543154911896" duration="10294000" />
-      <workItem from="1543178296284" duration="17475000" />
+      <workItem from="1543178296284" duration="20405000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97527000" />
+    <option name="totallyTimeSpent" value="100457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1922" height="1028" extended-state="6" />
@@ -565,22 +569,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Stats.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Authors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1962">
-          <caret line="109" column="60" selection-start-line="109" selection-start-column="60" selection-end-line="109" selection-end-column="60" />
+        <state relative-caret-position="1925">
+          <caret line="125" column="5" lean-forward="true" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Authors.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Stats.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+        <state relative-caret-position="-576">
+          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
