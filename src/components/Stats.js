@@ -16,6 +16,7 @@ class Stats extends Component {
                         let newAuthorsWords = this.props.wordsNextAuthor;
                         let prevSum = this.props.sumOfWords;
 
+                        // eslint-disable-next-line
                         const filter = Object.keys(prevSum)
                             .filter(key => {
                                 return newSum[key] = prevSum[key] + newAuthorsWords[key]

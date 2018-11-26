@@ -9,32 +9,61 @@ class Authors extends Component {
         this.props.getAuthors();
     };
 
-    chooseAuthor = id => {
-        //send id to fetch data from api
+    chooseAuthor = (e, id, name) => {
+        //send id to fetch data from api and name of author to list of chosen authors array
         this.props.getStats(id)
             .then(() =>this.props.increaseNumOfAuthors(1))
             .then(() => this.props.calc(true))
+            .then(() => this.props.chooseAuthor(name))
+            .then(() => {
+                //deactivate chosen author button
+                if(name === 'All Authors'){
+                    this.props.deactivate(false)
+                }else{
+                    console.log(name)
+                    this.props.deleteAuthorFromList(name)
+                    this.props.deactivateAllButton('All Authors')
+                }
+            })
     };
-
+    handleReset = () => {
+        this.props.reset(false);
+    }
     render() {
+
         //array of object with name and key
         let authors = this.props.authorsArray;
         //creating array of authors to choose
         let showAuthors = authors.map( (author,i) => {
             return (
-                <div key={i} className='li'>
-                    <span>{i +1} </span>
+                <div key={i} className={this.props.active === true ? 'author' : 'deactivate'} onClick={(e) => {this.chooseAuthor(e,author.key, author.name)}}>
                     {author.name}
-                    <span onClick={() => {this.chooseAuthor(author.key)}}>X</span>
                 </div>
             )
         });
-
+        let chosenAuthors = this.props.chosenAuthor;
+        let showChosenAuthors;
+        if(this.props.chosenAuthor !== null) {
+           showChosenAuthors = chosenAuthors.map((author, i) => {
+                return <div key={i} className='chosenAuthor'>{author}</div>
+            })
+        }
         return (
-            <div>
-                <button onClick={this.showListOfAuthors}>List of Authors</button>
-                <div className='Authors'>
-                    {showAuthors}
+            <div className='authors-container'>
+                <div>
+                    <div className='button' onClick={this.showListOfAuthors}>List of Authors</div>
+                    <div className='Authors'>
+                        {showAuthors}
+                    </div>
+                </div>
+                <div>
+                    <div className='chosenAuthors'>chosen authors : </div>
+                    <div>
+                        {showChosenAuthors}
+                    </div>
+                </div>
+                <div>
+                <div className='resetButton' onClick={this.handleReset}>RESET ALL</div>
                 </div>
             </div>
         );
@@ -44,7 +73,10 @@ class Authors extends Component {
 const mapStateToProps = (state) =>{
     return {
         authorsArray: state.authors.authorsArray,
-        numOfAuthors: state.authors.numOfAuthors
+        numOfAuthors: state.authors.numOfAuthors,
+        chosenAuthor: state.authors.chosenAuthors,
+        active: state.active.active,
+
     }
 };
 
@@ -55,14 +87,32 @@ const mapDispatchToState = dispatch =>{
             return Promise.resolve()
         },
         getStats: (id) => {
-            (dispatch({type:'GET_STATS', id: id}));
+            (dispatch({type:'GET_STATS', id}));
             return Promise.resolve()
         },
         calc: (calc) =>{
-            dispatch({type: 'CALC_SUM', calc:calc})
+            dispatch({type: 'CALC_SUM', calc})
         },
         increaseNumOfAuthors: (increase) => {
             (dispatch({type:'INCREASE_NUM_OF_AUTHORS', increase}));
+            return Promise.resolve()
+        },
+        chooseAuthor: (chosen) => {
+            (dispatch({type:'CHOOSE_AUTHOR', chosen}));
+            return Promise.resolve()
+        },
+        reset: () => {
+            dispatch({type: "RESET"})},
+        deactivate: (active) => {
+            dispatch({type: "ACTIVATE", active})
+            return Promise.resolve()
+        },
+        deactivateAllButton: (deactivate) => {
+            dispatch({type: "DEACTIVATE_ALL_BUTTON", deactivate});
+            return Promise.resolve()
+        },
+        deleteAuthorFromList: (del) => {
+            dispatch({type: "DELETE_AUTHOR_FROM_LIST", del})
             return Promise.resolve()
         },
     }
