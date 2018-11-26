@@ -14,11 +14,11 @@ services:
     environment:
       - NODE_ENV=development
 
-#  scraper:
-#    image: teonite/test-scraper
-#    depends_on:
-#      - db
-#    entrypoint: dockerize -wait tcp://db:5432 scrapy crawl blog
+  scraper:
+    image: teonite/test-scraper
+    depends_on:
+      - db
+    entrypoint: dockerize -wait tcp://db:5432 scrapy crawl blog
 
   api:
     image: teonite/test-api
