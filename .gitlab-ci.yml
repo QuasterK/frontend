@@ -1,39 +1,19 @@
-image: docker:latest
-services:
-- docker:dind
+ image: docker:stable
 
-stages:
-- build
-- test
-- release
+ variables:
 
-variables:
-  CONTAINER_IMAGE: registry.gitlab.com/$CI_PROJECT_PATH
-  DOCKER_HOST: tcp://docker:2375
-  DOCKER_DRIVER: overlay2
+   DOCKER_HOST: tcp://docker:2375/
 
-before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+   DOCKER_DRIVER: overlay2
 
-build:
-  stage: build
-  script:
-    - docker pull $CONTAINER_IMAGE:latest || true
-    - docker build --cache-from $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_COMMIT_SHA --tag $CONTAINER_IMAGE:latest .
-    - docker push $CONTAINER_IMAGE:$CI_COMMIT_SHA
-    - docker push $CONTAINER_IMAGE:latest
+ services:
+   - docker:dind
 
-test:
-  stage: test
-  script:
-    - docker pull $TEST_IMAGE
-    - docker run $TEST_IMAGE npm test
+ before_script:
+   - docker info
 
-release:
-  stage: release
-  script:
-    - docker pull $TEST_IMAGE
-    - docker tag $TEST_IMAGE $RELEASE_IMAGE
-    - docker push $RELEASE_IMAGE
-  only:
-    - master
+ build:
+   stage: build
+   script:
+     - docker build -t my-docker-image .
+     - docker run my-docker-image /script/to/run/tests
