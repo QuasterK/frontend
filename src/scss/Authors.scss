@@ -1,0 +1,41 @@
+@mixin authors {
+  width: 250px;
+  height: 40px;
+  margin: 10px;
+  line-height: 40px;
+  cursor: pointer;
+}
+.authors-container {
+  display: flex;
+  color: white;
+  .button{
+    @include authors;
+    background-color: darken(lightblue, 30%);
+    font-weight: bolder;
+  }
+  .button:hover{
+    background-color: darken(lightblue, 50%);
+  }
+  .author {
+    @include authors;
+    background-color: lightblue;
+    color:black;
+  }
+  .deactivate{
+    display: none
+  }
+  .author:hover{
+    background-color: darken(lightblue, 30%);
+  }
+  .chosenAuthors{
+    color:black;
+    @extend .button
+  }
+  .chosenAuthor{
+   @extend .author
+  }
+  .resetButton{
+   @extend .button;
+    color:red;
+  }
+}
