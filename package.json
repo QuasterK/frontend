@@ -1,7 +1,7 @@
 {
   "name": "teonite",
   "version": "0.1.0",
-  "homepage": "https://gitlab.com/QuasterK/frontend.git",
+  "homepage": "https://quasterk.github.io/frontend/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "node-sass": "^4.10.0",
